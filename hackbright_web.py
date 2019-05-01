@@ -1,6 +1,6 @@
 """A web application for tracking projects, students, and student grades."""
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 
 import hackbright
 
@@ -32,17 +32,20 @@ def get_student_form():
     return render_template("student_search.html")
 
 
-@app.route("/student-add", methods=['POST'])
+@app.route("/student-add")
 def student_add():
     """Add a student."""
+    return render_template ("student-add.html")
 
+@app.route("/confirmation-page", methods=['POST'])
+def add_student():
     first  = request.form.get('first_name')
     last  = request.form.get('last_name')
     github  = request.form.get('github')
     hackbright.make_new_student(first, last, github)
 
-    return render_template("/student-add.html")
-                    # first = first,
+    return render_template("confirmation-page.html"
+                   ) # first = first,
                     # last=last,
                     # github=github)
 
