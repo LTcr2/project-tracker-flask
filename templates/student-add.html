@@ -7,11 +7,13 @@
 <body>
 
   <form action="/student-add" method="POST">
-      <label>Enter GitHub username
-          <input type="text" name="github">
+      <label>Enter Student Info
+          <input type="text" name="github" placeholder="Student GitHub">
+          <input type="text" name="first_name" placeholder="Student First Name">
+          <input type="text" name="last_name" placeholder="Student Last Name">
 
       </label>
-      <a href="/student"><input type="submit" value="Add Student"></a>
+      <input action="/confirmation-page" type="submit" value="Add Student">
   </form>
 
 </body>
